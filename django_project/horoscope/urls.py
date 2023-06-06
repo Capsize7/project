@@ -1,17 +1,7 @@
 from django.urls import path
-from . import views as hv
-
+from horoscope import views
 urlpatterns = [
-    path('aries/', hv.aries),
-    path('taurus/', hv.taurus),
-    path('gemini/', hv.gemini),
-    path('cancer/', hv.cancer),
-    path('leo/', hv.leo),
-    path('virgo/', hv.virgo),
-    path('libra/', hv.libra),
-    path('scorpio/', hv.scorpio),
-    path('sagittarius/', hv.sagittarius),
-    path('capricorn/', hv.capricorn),
-    path('aquarius/', hv.aquarius),
-    path('pisces/', hv.pisces)
+    path('', views.index),
+    path('<int:zodiac>/', views.get_zodiac_by_number),
+    path('<str:zodiac>/', views.get_zodiac_by_name, name='horoscope-name')
 ]
